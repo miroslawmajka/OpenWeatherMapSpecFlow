@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Tests
+namespace OpenWeatherMapSpecFlowProject
 {
     using TechTalk.SpecFlow;
     using System;
