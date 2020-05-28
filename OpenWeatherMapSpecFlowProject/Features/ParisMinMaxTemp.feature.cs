@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace OpenWeatherMapSpecFlowProject
+namespace OpenWeatherMapSpecFlowProject.Features
 {
     using TechTalk.SpecFlow;
     using System;
@@ -19,24 +19,26 @@ namespace OpenWeatherMapSpecFlowProject
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("SpecFlowFeatureOne", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="SpecFlowFeatureOne.feature", SourceLine=0)]
-    public partial class SpecFlowFeatureOneFeature
+    [TechTalk.SpecRun.FeatureAttribute("ParisMinMaxTemp", Description="\tAs an automation engineer \r\n\tI want to ensure that the forecast API service\r\n\tPr" +
+        "ovides data for the 5 in city of Paris along with the lowest and highest tempera" +
+        "tures", SourceFile="Features\\ParisMinMaxTemp.feature", SourceLine=0)]
+    public partial class ParisMinMaxTempFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "SpecFlowFeatureOne.feature"
+#line 1 "ParisMinMaxTemp.feature"
 #line hidden
         
         [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SpecFlowFeatureOne", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ParisMinMaxTemp", "\tAs an automation engineer \r\n\tI want to ensure that the forecast API service\r\n\tPr" +
+                    "ovides data for the 5 in city of Paris along with the lowest and highest tempera" +
+                    "tures", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -72,14 +74,16 @@ namespace OpenWeatherMapSpecFlowProject
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Add two numbers", new string[] {
-                "mytag"}, SourceLine=6)]
-        public virtual void AddTwoNumbers()
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for Paris and determine the maximum and minimum temperature over" +
+            " that time", new string[] {
+                "ParisMinMaxTemp"}, SourceLine=6)]
+        public virtual void GetTheForecastForParisAndDetermineTheMaximumAndMinimumTemperatureOverThatTime()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", null, new string[] {
-                        "mytag"});
+                    "ParisMinMaxTemp"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for Paris and determine the maximum and minimum temperature over" +
+                    " that time", null, new string[] {
+                        "ParisMinMaxTemp"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -101,16 +105,19 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 8
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 9
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("The API connection is ready", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I query the \"forecast\" API service for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 12
+ testRunner.And("The \"minimum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 13
+ testRunner.And("The \"maximum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
