@@ -1,4 +1,8 @@
-﻿using System;
+﻿using dotenv.net;
+using OpenWeatherMapSpecFlowProject.Context;
+using OpenWeatherMapSpecFlowProject.Handlers;
+using OpenWeatherMapSpecFlowProject.Model;
+using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace OpenWeatherMapSpecFlowProject.Steps
@@ -6,40 +10,45 @@ namespace OpenWeatherMapSpecFlowProject.Steps
     [Binding]
     public class ForecastSteps
     {
+        private readonly ApiScenarioContext context;
+
+        public ForecastSteps(ApiScenarioContext scenarioContext)
+        {
+            DotEnv.Config(false);
+
+            context = scenarioContext;
+        }
+
         [Given(@"The API connection is ready")]
         public void GivenTheAPIConnectionIsReady()
         {
-            //ScenarioContext.Current.Pending();
+            context.Handler = RequestHandler.GetInstance();
         }
         
         [When(@"I query the ""(.*)"" API service for ""(.*)""")]
-        public void WhenIQueryTheAPIServiceFor(string service, string city)
+        public async Task WhenIQueryTheAPIServiceFor(string service, string city)
         {
-            //ScenarioContext.Current.Pending();
+            var request = new ForecastRequest(city);
+
+            context.ApiResponse = await context.Handler.Handle(request);
         }
         
         [Then(@"The results are returned")]
         public void ThenTheResultsAreReturned()
         {
-            //ScenarioContext.Current.Pending();
-        }
-        
-        [Then(@"The results are saved")]
-        public void ThenTheResultsAreSaved()
-        {
-            //ScenarioContext.Current.Pending();
+            // TODO: assert on context.ApiResponse being there as valid JSON
         }
         
         [Then(@"The the hottest day for ""(.*)"" is determined")]
         public void ThenTheTheHottestDayForIsDetermined(string city)
         {
-            //ScenarioContext.Current.Pending();
+            // TODO: anaylse the JSON data and figure the hottest day
         }
 
         [Then(@"The ""(.*)"" temperature is determined from the results")]
-        public void ThenTheTemperatureIsDeterminedFromTheResults(string p0)
+        public void ThenTheTemperatureIsDeterminedFromTheResults(string minMaxTemp)
         {
-            //ScenarioContext.Current.Pending();
+            //  TODO: anaylse the JSON data and figure the min/max temp
         }
     }
 }

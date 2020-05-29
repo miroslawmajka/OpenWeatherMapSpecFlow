@@ -2,7 +2,7 @@
 
 namespace OpenWeatherMapSpecFlowProject.Model
 {
-    class ForecastResponse
+    public class ForecastResponse
     {
         public string cod { get; set; }
         public int message { get; set; }

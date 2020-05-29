@@ -9,7 +9,7 @@ Scenario: Get the forecast for 5 cities and get the hottest day for eaceh city
 
 	When I query the "forecast" API service for "Dundee"
 	Then The results are returned
-	And The results are saved
+	And The the hottest day for "Dundee" is determined
 
 	When I query the "forecast" API service for "London"
 	Then The results are returned

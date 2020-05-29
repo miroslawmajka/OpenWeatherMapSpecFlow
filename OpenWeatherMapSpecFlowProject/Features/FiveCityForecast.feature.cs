@@ -110,7 +110,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 12
- testRunner.And("The results are saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The the hottest day for \"Dundee\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
  testRunner.When("I query the \"forecast\" API service for \"London\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
