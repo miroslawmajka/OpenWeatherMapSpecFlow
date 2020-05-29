@@ -1,7 +1,8 @@
-﻿using dotenv.net;
+﻿using Newtonsoft.Json;
 using OpenWeatherMapSpecFlowProject.Context;
 using OpenWeatherMapSpecFlowProject.Handlers;
 using OpenWeatherMapSpecFlowProject.Model;
+using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
@@ -12,23 +13,22 @@ namespace OpenWeatherMapSpecFlowProject.Steps
     {
         private readonly ApiScenarioContext context;
 
-        public ForecastSteps(ApiScenarioContext scenarioContext)
+        public ForecastSteps()
         {
-            DotEnv.Config(false);
-
-            context = scenarioContext;
+            context = new ApiScenarioContext();
         }
 
         [Given(@"The API connection is ready")]
         public void GivenTheAPIConnectionIsReady()
         {
-            context.Handler = RequestHandler.GetInstance();
+            context.ApiId = Environment.GetEnvironmentVariable("OWA_API_ID");
+            context.Handler = new RequestHandler();
         }
         
         [When(@"I query the ""(.*)"" API service for ""(.*)""")]
         public async Task WhenIQueryTheAPIServiceFor(string service, string city)
         {
-            var request = new ForecastRequest(city);
+            var request = new ForecastRequest(city, context.ApiId);
 
             context.ApiResponse = await context.Handler.Handle(request);
         }
@@ -37,6 +37,8 @@ namespace OpenWeatherMapSpecFlowProject.Steps
         public void ThenTheResultsAreReturned()
         {
             // TODO: assert on context.ApiResponse being there as valid JSON
+
+            Console.WriteLine(JsonConvert.SerializeObject(context.ApiResponse));
         }
         
         [Then(@"The the hottest day for ""(.*)"" is determined")]

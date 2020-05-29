@@ -1,15 +1,21 @@
-﻿namespace OpenWeatherMapSpecFlowProject.Model
+﻿using System.Web;
+
+namespace OpenWeatherMapSpecFlowProject.Model
 {
-    public class ForecastRequest
+    public class ForecastRequest : ApiRequest
     {
-        private const string API_BASE_URL = "http://api.openweathermap.org/data/2.5/";
         private const string API_SERVICE = "forecast";
 
-        public string URI { get; }
-
-        public ForecastRequest(string city)
+        public ForecastRequest(string city, string apiId)
         {
-            this.URI = $"{API_BASE_URL}/${API_SERVICE}?q=${city}";
+            var queryString = HttpUtility.ParseQueryString(string.Empty);
+
+            queryString.Add("q", city);
+            queryString.Add("appid", apiId);
+
+            var queryStringPart = queryString.ToString();
+
+            this.URI = $"{API_BASE_URL}/{API_SERVICE}?{queryStringPart}";
         }
     }
 }

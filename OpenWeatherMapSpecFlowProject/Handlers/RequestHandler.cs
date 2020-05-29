@@ -8,22 +8,6 @@ namespace OpenWeatherMapSpecFlowProject.Handlers
 {
     public class RequestHandler : IRequestHandler
     {
-        protected static JsonSerializerSettings JSON_SERIAL_SETTINGS = new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore };
-        private readonly string apiKey;
-        private static RequestHandler instance;
-
-        public static RequestHandler GetInstance()
-        {
-            if (instance == null) instance = new RequestHandler();
-
-            return instance;
-        }
-
-        private RequestHandler()
-        {
-            apiKey = Environment.GetEnvironmentVariable("API_KEY");
-        }
-
         public async Task<ForecastResponse> Handle(ForecastRequest request, HttpClient httpClient = null)
         {
             using (httpClient != null ? httpClient : httpClient = new HttpClient())
@@ -37,7 +21,7 @@ namespace OpenWeatherMapSpecFlowProject.Handlers
             var requestMessage = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri($"{request.URI}&appid={apiKey}")
+                RequestUri = new Uri(request.URI)
             };
 
             var callResponse = await httpClient.SendAsync(requestMessage);

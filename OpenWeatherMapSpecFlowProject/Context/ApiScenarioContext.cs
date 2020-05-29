@@ -1,6 +1,5 @@
 ﻿using OpenWeatherMapSpecFlowProject.Handlers;
 using OpenWeatherMapSpecFlowProject.Model;
-using TechTalk.SpecFlow;
 
 namespace OpenWeatherMapSpecFlowProject.Context
 {
@@ -8,5 +7,6 @@ namespace OpenWeatherMapSpecFlowProject.Context
     {
         public ForecastResponse ApiResponse { get; set; }
         public IRequestHandler Handler { get; set; }
+        public string ApiId { get; set; }
     }
 }
