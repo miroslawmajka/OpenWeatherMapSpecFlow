@@ -6,29 +6,50 @@ using System.Threading.Tasks;
 
 namespace OpenWeatherMapSpecFlowProject.Handlers
 {
+    /// <summary>
+    /// Using IRequestHandler interface in case we want to mock this one out for unit testing
+    /// or use a different handler in the future
+    /// </summary>
     public class RequestHandler : IRequestHandler
     {
-        public async Task<ForecastResponse> Handle(ForecastRequest request, HttpClient httpClient = null)
+        private readonly string appId;
+
+        public RequestHandler(string appId)
         {
-            using (httpClient != null ? httpClient : httpClient = new HttpClient())
-            {
-                return await CallApiEndpoint(httpClient, request);
-            }
+            this.appId = appId;
         }
 
-        private async Task<ForecastResponse> CallApiEndpoint(HttpClient httpClient, ForecastRequest request)
+        public async Task<ForecastResponse> Handle(ForecastRequest request)
         {
+            var queryParams = request.QueryParams;
+
+            queryParams.Add("appid", this.appId);
+
+            var queryString = queryParams.ToString();
+
+            var requestUrl = $"{request.ApiUrl}/{request.ServiceName}?{queryString}";
+
             var requestMessage = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
-                RequestUri = new Uri(request.URI)
+                RequestUri = new Uri(requestUrl)
             };
 
-            var callResponse = await httpClient.SendAsync(requestMessage);
+            string responseString = string.Empty;
 
-            var callResponseAsString = await callResponse.Content.ReadAsStringAsync();
+            using (var httpClient = new HttpClient())
+            { 
+                var callResponse = await httpClient.SendAsync(requestMessage);
 
-            return JsonConvert.DeserializeObject<ForecastResponse>(callResponseAsString);
+                responseString = await callResponse.Content.ReadAsStringAsync();
+            }
+
+            if (string.IsNullOrWhiteSpace(responseString))
+            {
+                throw new Exception("Received empty string from the API");
+            }
+
+            return JsonConvert.DeserializeObject<ForecastResponse>(responseString);
         }
     }
 }

@@ -21,16 +21,15 @@ namespace OpenWeatherMapSpecFlowProject.Steps
         [Given(@"The API connection is ready")]
         public void GivenTheAPIConnectionIsReady()
         {
-            context.ApiId = Environment.GetEnvironmentVariable("OWA_API_ID");
-            context.Handler = new RequestHandler();
+            context.ApiRequestHandler = new RequestHandler(EnvHandler.OWA_API_ID);
         }
         
         [When(@"I query the ""(.*)"" API service for ""(.*)""")]
         public async Task WhenIQueryTheAPIServiceFor(string service, string city)
         {
-            var request = new ForecastRequest(city, context.ApiId);
+            var request = new ForecastRequest(city);
 
-            context.ApiResponse = await context.Handler.Handle(request);
+            context.ApiResponse = await context.ApiRequestHandler.Handle(request);
         }
         
         [Then(@"The results are returned")]

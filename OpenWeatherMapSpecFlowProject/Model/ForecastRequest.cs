@@ -6,16 +6,15 @@ namespace OpenWeatherMapSpecFlowProject.Model
     {
         private const string API_SERVICE = "forecast";
 
-        public ForecastRequest(string city, string apiId)
+        public ForecastRequest(string city)
         {
-            var queryString = HttpUtility.ParseQueryString(string.Empty);
+            this.ServiceName = API_SERVICE;
 
-            queryString.Add("q", city);
-            queryString.Add("appid", apiId);
+            var queryParams = HttpUtility.ParseQueryString(string.Empty);
 
-            var queryStringPart = queryString.ToString();
+            queryParams.Add("q", city);
 
-            this.URI = $"{API_BASE_URL}/{API_SERVICE}?{queryStringPart}";
+            this.QueryParams = queryParams;
         }
     }
 }

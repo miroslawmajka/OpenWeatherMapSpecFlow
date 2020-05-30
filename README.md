@@ -1,19 +1,25 @@
 # OpenWeatherMapSpecFlow
 
 ## Running the Tests
-To run the tests in CLI:
+
+To run the tests please open the solution in Visual Studio 2019, compile it and open the **Test Explorer**.
+
+Click **Run All Tests**. In case of running of the first time you will need to setup your SpecFlow account (see https://specflow.org/getting-started/ for details).
+
+In case of problems you might need to set this environment variable in your system to **1**:
 ```
 export MSBUILDSINGLELOADCONTEXT=1
-dotnet test
 ```
 
 ## What is good?
 
-TODO
+* Good separation of responsibilities (feature files, steps, handlers, data models)
+* Reusable steps for other scenarios
 
-## What needs improvements?
+## What could be done to make this better?
 
-TODO
+* Getting the tests running in an Azure DevOps Pipeline with results posted in Slack/Teams/etc
+* Unit testing the data processing logic (internal test project)
 
 ## Most interesting trends in test automation
 
@@ -22,7 +28,7 @@ TODO
 * Getting development, QA and project management teams closer by use of BDD and visibility of test results through automated tools and chat systems such as Slack
 * Testing REST APIs using Postman/Newman
 
-## Mirek in JSON
+## Mirek described in JSON
 
 ```
 {

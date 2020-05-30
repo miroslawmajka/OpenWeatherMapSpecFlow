@@ -1,4 +1,4 @@
-﻿using dotenv.net;
+﻿using OpenWeatherMapSpecFlowProject.Handlers;
 using TechTalk.SpecFlow;
 
 namespace OpenWeatherMapSpecFlowProject.Hooks
@@ -9,8 +9,7 @@ namespace OpenWeatherMapSpecFlowProject.Hooks
         [BeforeScenario(Order = 0)]
         public void CleanDatabase()
         {
-            // Read the OWA_API_ID from the .env file in the running folder (TestResults)
-            DotEnv.Config();
+            EnvHandler.SetupEnvVars();
         }
     }
 }

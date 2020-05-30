@@ -4,7 +4,7 @@
 	Provides data for 5 days along with the maximum temperature value
 
 @FiveCityForecast
-Scenario: Get the forecast for 5 cities and get the hottest day for eaceh city
+Scenario: Get the forecast for 5 cities and get the hottest day for each city
 	Given The API connection is ready
 
 	When I query the "forecast" API service for "Dundee"

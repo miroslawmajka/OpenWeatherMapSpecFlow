@@ -72,13 +72,13 @@ namespace OpenWeatherMapSpecFlowProject.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for eaceh city", new string[] {
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city", new string[] {
                 "FiveCityForecast"}, SourceLine=6)]
-        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEacehCity()
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity()
         {
             string[] tagsOfScenario = new string[] {
                     "FiveCityForecast"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for 5 cities and get the hottest day for eaceh city", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for 5 cities and get the hottest day for each city", null, new string[] {
                         "FiveCityForecast"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
