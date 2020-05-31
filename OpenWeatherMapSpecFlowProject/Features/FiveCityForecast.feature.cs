@@ -72,15 +72,26 @@ namespace OpenWeatherMapSpecFlowProject.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city", new string[] {
-                "FiveCityForecast"}, SourceLine=6)]
-        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity()
+        public virtual void FeatureBackground()
         {
-            string[] tagsOfScenario = new string[] {
-                    "FiveCityForecast"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for 5 cities and get the hottest day for each city", null, new string[] {
-                        "FiveCityForecast"});
+#line 6
+#line hidden
 #line 7
+ testRunner.Given("The API connection is ready", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity(string city, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "FiveCityForecast"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for 5 cities and get the hottest day for each city", null, @__tags);
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -100,56 +111,65 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("The API connection is ready", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 6
+this.FeatureBackground();
 #line hidden
-#line 10
- testRunner.When("I query the \"forecast\" API service for \"Dundee\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 32
+ testRunner.When(string.Format("I query the \"forecast\" API service for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 11
+#line 33
  testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 12
- testRunner.And("The the hottest day for \"Dundee\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 14
- testRunner.When("I query the \"forecast\" API service for \"London\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 15
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 16
- testRunner.And("The the hottest day for \"London\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 18
- testRunner.When("I query the \"forecast\" API service for \"Warsaw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 19
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 20
- testRunner.And("The the hottest day for \"Warsaw\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 22
- testRunner.When("I query the \"forecast\" API service for \"Tokyo\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 23
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 24
- testRunner.And("The the hottest day for \"Tokyo\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 26
- testRunner.When("I query the \"forecast\" API service for \"New York\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 27
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 28
- testRunner.And("The the hottest day for \"New York\" is determined", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And(string.Format("The the hottest day for \"{0}\" is determined", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city, Dundee", new string[] {
+                "FiveCityForecast"}, SourceLine=37)]
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity_Dundee()
+        {
+#line 31
+this.GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity("Dundee", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city, London", new string[] {
+                "FiveCityForecast"}, SourceLine=37)]
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity_London()
+        {
+#line 31
+this.GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity("London", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city, Warsaw", new string[] {
+                "FiveCityForecast"}, SourceLine=37)]
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity_Warsaw()
+        {
+#line 31
+this.GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity("Warsaw", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city, Tokyo", new string[] {
+                "FiveCityForecast"}, SourceLine=37)]
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity_Tokyo()
+        {
+#line 31
+this.GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity("Tokyo", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for 5 cities and get the hottest day for each city, New York", new string[] {
+                "FiveCityForecast"}, SourceLine=37)]
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity_NewYork()
+        {
+#line 31
+this.GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity("New York", ((string[])(null)));
+#line hidden
         }
         
         [TechTalk.SpecRun.TestRunCleanup()]
