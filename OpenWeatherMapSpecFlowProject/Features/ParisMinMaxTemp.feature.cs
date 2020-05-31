@@ -74,9 +74,18 @@ namespace OpenWeatherMapSpecFlowProject.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+#line 7
+ testRunner.Given("The API connection is ready", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [TechTalk.SpecRun.ScenarioAttribute("Get the forecast for Paris and determine the maximum and minimum temperature over" +
             " that time", new string[] {
-                "ParisMinMaxTemp"}, SourceLine=6)]
+                "ParisMinMaxTemp"}, SourceLine=9)]
         public virtual void GetTheForecastForParisAndDetermineTheMaximumAndMinimumTemperatureOverThatTime()
         {
             string[] tagsOfScenario = new string[] {
@@ -84,7 +93,7 @@ namespace OpenWeatherMapSpecFlowProject.Features
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get the forecast for Paris and determine the maximum and minimum temperature over" +
                     " that time", null, new string[] {
                         "ParisMinMaxTemp"});
-#line 7
+#line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -104,19 +113,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("The API connection is ready", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 10
- testRunner.When("I query the \"forecast\" API service for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 6
+this.FeatureBackground();
 #line hidden
 #line 11
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I query the \"forecast\" API service for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.And("The \"minimum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
+ testRunner.And("The \"minimum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
  testRunner.And("The \"maximum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }

@@ -7,7 +7,7 @@ namespace OpenWeatherMapSpecFlowProject.Hooks
     class BeforeHooks
     {
         [BeforeScenario(Order = 0)]
-        public void CleanDatabase()
+        public void SetupEnvironmentVariables()
         {
             EnvHandler.SetupEnvVars();
         }
