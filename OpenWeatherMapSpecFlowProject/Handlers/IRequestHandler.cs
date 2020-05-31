@@ -5,6 +5,6 @@ namespace OpenWeatherMapSpecFlowProject.Handlers
 {
     public interface IRequestHandler
     {
-        Task<ForecastResponse> Handle(ForecastRequest request);
+        Task<ForecastResponse> Handle(ApiRequest request);
     }
 }

@@ -9,7 +9,7 @@ Background: Setup the HTTP client with the API ID
 @FiveCityForecast
 Scenario Outline: Get the forecast for 5 cities and get the hottest day for each city
 	When I query the "forecast" API service for "<city>"
-	Then The results are returned
+	Then The results are returned for "<city>"
 	And The the hottest day for "<city>" is determined
 
 	Examples:

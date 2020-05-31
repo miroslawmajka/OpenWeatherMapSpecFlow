@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using OpenWeatherMapSpecFlowProject.Context;
+using OpenWeatherMapSpecFlowProject.Factories;
 using OpenWeatherMapSpecFlowProject.Handlers;
-using OpenWeatherMapSpecFlowProject.Model;
 using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
@@ -12,10 +12,12 @@ namespace OpenWeatherMapSpecFlowProject.Steps
     public class ForecastSteps
     {
         private readonly ApiScenarioContext context;
+        private readonly ApiRequestFactory apiRequestFactory;
 
         public ForecastSteps()
         {
             context = new ApiScenarioContext();
+            apiRequestFactory = new ApiRequestFactory();
         }
 
         [Given(@"The API connection is ready")]
@@ -27,17 +29,28 @@ namespace OpenWeatherMapSpecFlowProject.Steps
         [When(@"I query the ""(.*)"" API service for ""(.*)""")]
         public async Task WhenIQueryTheAPIServiceFor(string service, string city)
         {
-            var request = new ForecastRequest(city);
+            var request = apiRequestFactory.GetRequest(new RequestBlueprint
+            {
+                ServiceName = service,
+                City = city
+            });
 
-            context.ApiResponse = await context.ApiRequestHandler.Handle(request);
+            var response = await context.ApiRequestHandler.Handle(request);
+
+            if (context.ApiResponses.ContainsKey(city))
+            {
+                context.ApiResponses.Remove(city);
+            }
+
+            context.ApiResponses.Add(city, response);
         }
         
-        [Then(@"The results are returned")]
-        public void ThenTheResultsAreReturned()
+        [Then(@"The results are returned for ""(.*)""")]
+        public void ThenTheResultsAreReturned(string city)
         {
             // TODO: assert on context.ApiResponse being there as valid JSON
 
-            Console.WriteLine(JsonConvert.SerializeObject(context.ApiResponse));
+            Console.WriteLine(JsonConvert.SerializeObject(context.ApiResponses[city]));
         }
         
         [Then(@"The the hottest day for ""(.*)"" is determined")]

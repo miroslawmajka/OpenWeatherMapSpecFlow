@@ -19,7 +19,7 @@ namespace OpenWeatherMapSpecFlowProject.Handlers
             this.appId = appId;
         }
 
-        public async Task<ForecastResponse> Handle(ForecastRequest request)
+        public async Task<ForecastResponse> Handle(ApiRequest request)
         {
             var queryParams = request.QueryParams;
 

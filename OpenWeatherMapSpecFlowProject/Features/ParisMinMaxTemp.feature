@@ -9,6 +9,6 @@ Background: Setup the HTTP client with the API ID
 @ParisMinMaxTemp
 Scenario: Get the forecast for Paris and determine the maximum and minimum temperature over that time
 	When I query the "forecast" API service for "Paris"
-	Then The results are returned
+	Then The results are returned for "Paris"
 	And The "minimum" temperature is determined from the results
 	And The "maximum" temperature is determined from the results

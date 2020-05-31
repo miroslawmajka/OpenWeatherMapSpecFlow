@@ -118,7 +118,7 @@ this.FeatureBackground();
  testRunner.When(string.Format("I query the \"forecast\" API service for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The results are returned for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
  testRunner.And(string.Format("The the hottest day for \"{0}\" is determined", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

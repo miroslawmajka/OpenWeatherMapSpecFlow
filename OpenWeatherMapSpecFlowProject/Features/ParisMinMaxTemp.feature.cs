@@ -120,7 +120,7 @@ this.FeatureBackground();
  testRunner.When("I query the \"forecast\" API service for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.Then("The results are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The results are returned for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
  testRunner.And("The \"minimum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
