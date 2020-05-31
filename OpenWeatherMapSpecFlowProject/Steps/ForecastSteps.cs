@@ -1,8 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using FluentAssertions;
 using OpenWeatherMapSpecFlowProject.Context;
 using OpenWeatherMapSpecFlowProject.Factories;
 using OpenWeatherMapSpecFlowProject.Handlers;
-using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
@@ -37,30 +36,25 @@ namespace OpenWeatherMapSpecFlowProject.Steps
 
             var response = await context.ApiRequestHandler.Handle(request);
 
-            if (context.ApiResponses.ContainsKey(city))
-            {
-                context.ApiResponses.Remove(city);
-            }
-
-            context.ApiResponses.Add(city, response);
+            context.AddOrReplaceApiResponse(city, response);
         }
         
         [Then(@"The results are returned for ""(.*)""")]
         public void ThenTheResultsAreReturned(string city)
         {
-            // TODO: assert on context.ApiResponse being there as valid JSON
+            context.ApiResponses.Should().ContainKey(city);
 
-            Console.WriteLine(JsonConvert.SerializeObject(context.ApiResponses[city]));
+            context.ApiResponses[city].Should().NotBeNull();
         }
         
-        [Then(@"The the hottest day for ""(.*)"" is determined")]
+        [Then(@"The hottest day for ""(.*)"" is determined")]
         public void ThenTheTheHottestDayForIsDetermined(string city)
         {
             // TODO: anaylse the JSON data and figure the hottest day
         }
 
-        [Then(@"The ""(.*)"" temperature is determined from the results")]
-        public void ThenTheTemperatureIsDeterminedFromTheResults(string minMaxTemp)
+        [Then(@"The ""(.*)"" temperature is determined for ""(.*)""")]
+        public void ThenTheTemperatureIsDeterminedFromTheResults(string minMaxTemp, string city)
         {
             //  TODO: anaylse the JSON data and figure the min/max temp
         }

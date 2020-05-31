@@ -123,10 +123,10 @@ this.FeatureBackground();
  testRunner.Then("The results are returned for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And("The \"minimum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The \"minimum\" temperature is determined for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.And("The \"maximum\" temperature is determined from the results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("The \"maximum\" temperature is determined for \"Paris\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

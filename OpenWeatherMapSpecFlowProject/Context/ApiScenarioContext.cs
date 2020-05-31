@@ -13,5 +13,15 @@ namespace OpenWeatherMapSpecFlowProject.Context
         {
             ApiResponses = new Dictionary<string, ForecastResponse>();
         }
+
+        public void AddOrReplaceApiResponse(string city, ForecastResponse response)
+        {
+            if (ApiResponses.ContainsKey(city))
+            {
+                ApiResponses.Remove(city);
+            }
+
+            ApiResponses.Add(city, response);
+        }
     }
 }
