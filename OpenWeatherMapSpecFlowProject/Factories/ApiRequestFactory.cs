@@ -10,7 +10,7 @@ namespace OpenWeatherMapSpecFlowProject.Factories
             switch(blueprint.ServiceName)
             {
                 case ForecastRequest.API_SERVICE_NAME:
-                    return new ForecastRequest(blueprint.City);
+                    return new ForecastRequest(blueprint.CityName);
                 default:
                     throw new ArgumentOutOfRangeException("Service name provided does not exist");
             }

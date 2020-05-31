@@ -121,7 +121,7 @@ this.FeatureBackground();
  testRunner.Then(string.Format("The results are returned for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And(string.Format("The hottest day for \"{0}\" is determined", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The hottest day is determined for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
