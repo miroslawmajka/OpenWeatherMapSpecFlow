@@ -4,6 +4,14 @@
 
 To run the tests please open the solution in Visual Studio 2019, compile it and open the **Test Explorer**.
 
+You also need to create a `.env` files at the project level with the following structure:
+
+```
+OWA_API_ID=YOUR_OWA_ID
+```
+
+You can use the existing `template.env` file but you must change the `YOUR_OWA_ID` to your personal OpenWeather API key. 
+
 Click **Run All Tests**. In case of running of the first time you will need to setup your SpecFlow account (see https://specflow.org/getting-started/ for details).
 
 ![Test Explorer](docs/test-explorer.png)
