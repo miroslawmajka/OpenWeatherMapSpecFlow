@@ -81,7 +81,7 @@ namespace OpenWeatherMapSpecFlowProject.Features
 #line hidden
         }
         
-        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity(string city, string[] exampleTags)
+        public virtual void GetTheForecastFor5CitiesAndGetTheHottestDayForEachCity(string cityName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "FiveCityForecast"};
@@ -115,13 +115,13 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 11
- testRunner.When(string.Format("I query the \"forecast\" API service for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I query the \"forecast\" API service for \"{0}\"", cityName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.Then(string.Format("The results are returned for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("The results are returned for \"{0}\"", cityName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And(string.Format("The hottest day is determined for \"{0}\"", city), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("The hottest day is determined for \"{0}\"", cityName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

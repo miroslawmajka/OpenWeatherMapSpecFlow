@@ -2,6 +2,7 @@
 using OpenWeatherMapSpecFlowProject.Context;
 using OpenWeatherMapSpecFlowProject.Factories;
 using OpenWeatherMapSpecFlowProject.Handlers;
+using OpenWeatherMapSpecFlowProject.Model;
 using System;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
@@ -11,7 +12,7 @@ namespace OpenWeatherMapSpecFlowProject.Steps
     [Binding]
     public class StepDefinitions
     {
-        // TODO: figure out how to acccess scenario context between different step definition files/classes
+        // TODO: figure out how to acccess scenario context between different step definition files/classes (static context?)
         private readonly ApiScenarioContext context;
         private readonly ApiRequestFactory apiRequestFactory;
         private readonly WeatherDataHandler weatherDataHandler;
@@ -69,7 +70,7 @@ namespace OpenWeatherMapSpecFlowProject.Steps
         {
             var responseData = context.ApiResponses[cityName];
 
-            object temperatureData;
+            MinMaxTempData temperatureData;
 
             if (minMaxTemp == "minimum")
             {

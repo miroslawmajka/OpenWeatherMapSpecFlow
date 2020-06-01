@@ -20,6 +20,7 @@ export MSBUILDSINGLELOADCONTEXT=1
 
 * Getting the tests running in an Azure DevOps Pipeline with results posted in Slack/Teams/etc
 * Unit testing the data processing logic (internal test project)
+* Scenario context injection so that steps from different step definition classes can use it
 
 ## Most interesting trends in test automation
 

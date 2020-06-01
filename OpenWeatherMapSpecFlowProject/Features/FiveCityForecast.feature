@@ -8,12 +8,12 @@ Background: Setup the HTTP client with the API ID
 
 @FiveCityForecast
 Scenario Outline: Get the forecast for 5 cities and get the hottest day for each city
-	When I query the "forecast" API service for "<city>"
-	Then The results are returned for "<city>"
-	And The hottest day is determined for "<city>"
+	When I query the "forecast" API service for "<cityName>"
+	Then The results are returned for "<cityName>"
+	And The hottest day is determined for "<cityName>"
 
 	Examples:
-		| city     |
+		| cityName |
 		| Dundee   |
 		| London   |
 		| Warsaw   |
