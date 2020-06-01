@@ -25,15 +25,15 @@ namespace OpenWeatherMapSpecFlowProject.Model
 
     public class ForecastDetails
     {
-        public float temp { get; set; }
-        public float feels_like { get; set; }
-        public float temp_min { get; set; }
-        public float temp_max { get; set; }
+        public double temp { get; set; }
+        public double feels_like { get; set; }
+        public double temp_min { get; set; }
+        public double temp_max { get; set; }
         public int pressure { get; set; }
         public int sea_level { get; set; }
         public int grnd_level { get; set; }
         public int humidity { get; set; }
-        public float temp_kf { get; set; }
+        public double temp_kf { get; set; }
     }
 
     public class ForecastDescription
@@ -51,7 +51,7 @@ namespace OpenWeatherMapSpecFlowProject.Model
 
     public class ForecastWind
     {
-        public float speed { get; set; }
+        public double speed { get; set; }
         public int deg { get; set; }
     }
 
