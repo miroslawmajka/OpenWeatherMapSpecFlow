@@ -11,6 +11,9 @@ In case of problems you might need to set this environment variable in your syst
 export MSBUILDSINGLELOADCONTEXT=1
 ```
 
+You can find the reults for the specific tests from the **Tests Explorer**:
+![Tokyo Test Result](docs/tokyo-test-result.png)
+
 ## What is good?
 
 * Good separation of responsibilities (feature files, steps, handlers, data models)
