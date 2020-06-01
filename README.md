@@ -14,7 +14,6 @@ In case of problems you might need to set the `MSBUILDSINGLELOADCONTEXT` environ
 export MSBUILDSINGLELOADCONTEXT=1
 ```
 
-   Open additional output for this result
 You can find the reults for the specific tests from the **Tests Explorer** when you click on "Open additional output for this result":
 ![Tokyo Test Result](docs/tokyo-test-result.png)
 
