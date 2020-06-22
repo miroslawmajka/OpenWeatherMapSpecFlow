@@ -10,11 +10,11 @@ namespace OpenWeatherMapSpecFlowProject.Handlers
     /// Using IRequestHandler interface in case we want to mock this one out for unit testing
     /// or use a different handler in the future
     /// </summary>
-    public class RequestHandler : IRequestHandler
+    public class WeatherRequestHandler : IRequestHandler
     {
         private readonly string appId;
 
-        public RequestHandler(string appId)
+        public WeatherRequestHandler(string appId)
         {
             this.appId = appId;
         }

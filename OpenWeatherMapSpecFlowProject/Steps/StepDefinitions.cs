@@ -27,7 +27,7 @@ namespace OpenWeatherMapSpecFlowProject.Steps
         [Given(@"The API connection is ready")]
         public void GivenTheAPIConnectionIsReady()
         {
-            context.ApiRequestHandler = new RequestHandler(EnvHandler.OWA_API_ID);
+            context.ApiRequestHandler = new WeatherRequestHandler(EnvHandler.OWA_API_ID);
         }
         
         [When(@"I query the ""(.*)"" API service for ""(.*)""")]
